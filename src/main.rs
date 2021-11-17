@@ -38,6 +38,7 @@ struct Hero {
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
+		.service(index)
         .service(web::scope("/heroes")
             .service(all_heroes)
             .service(get_hero)
@@ -52,6 +53,12 @@ async fn main() -> std::io::Result<()> {
 
 
 #[get("/")]
+pub async fn index() -> impl Responder {
+	HttpResponse::Ok().content_type("text/html; charset=utf-8").body(include_str!("./views/index.html"))
+}
+
+
+#[get("")]
 pub async fn all_heroes() -> impl Responder {
     let mut conn = get_conn().expect("Failed to establish mysql connection.");
 
