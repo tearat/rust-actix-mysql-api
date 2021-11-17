@@ -8,8 +8,8 @@ edition = "2018"
 
 [dependencies]
 mysql = "20.1.0"
-actix-web = "*"
-actix-rt = "*"
+actix-web = "3.3.2"
+actix-rt = "1.1.1"
 warp = "0.2"
 serde = "*"
 toml = "*"
