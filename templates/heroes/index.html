@@ -9,7 +9,16 @@
   <body>
     <h1>Server is working</h1>
     <hr />
-    <a href="/heroes">Heroes page</a>
+    <a href="/">Index page</a>
+    <hr />
+    <h1>Heroes list</h1>
+    <ul>
+      {% for hero in heroes %}
+      <li>
+        <a href="/heroes/{{ hero.id }}"> {{ hero.title }} </a>
+      </li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
 

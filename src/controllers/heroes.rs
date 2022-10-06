@@ -5,6 +5,7 @@ use actix_web::{get, web, HttpResponse, Responder};
 use mysql::prelude::Queryable;
 use serde::Serialize;
 use crate::views::heroes::show;
+use crate::views::heroes::index;
 
 #[derive(Serialize)]
 pub struct ResponseSuccess {
@@ -23,7 +24,7 @@ pub async fn all_heroes() -> impl Responder {
     })
     .expect("Query failed.");
 
-    HttpResponse::Ok().json(items)
+    HttpResponse::Ok().content_type("text/html; charset=utf-8").body(index::render(&items))
 }
 
 
