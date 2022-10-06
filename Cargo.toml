@@ -1,5 +1,5 @@
 [package]
-name = "heroes2"
+name = "heroes"
 version = "0.1.0"
 authors = ["Tearat"]
 edition = "2018"
