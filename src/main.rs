@@ -1,6 +1,7 @@
 pub mod service;
 pub mod controllers;
 pub mod models;
+pub mod views;
 use actix_web::{App, HttpServer, get, web, HttpResponse, Responder};
 
 
@@ -25,5 +26,5 @@ async fn main() -> std::io::Result<()> {
 
 #[get("/")]
 pub async fn index() -> impl Responder {
-	HttpResponse::Ok().content_type("text/html; charset=utf-8").body(include_str!("./views/index.html"))
+	HttpResponse::Ok().content_type("text/html; charset=utf-8").body(include_str!("../templates/index.html"))
 }
